@@ -1,0 +1,55 @@
+.section {
+    padding: 4rem 0;
+    font-family: $ubuntu;
+    color: $azul;
+
+    .container {
+        flex-direction: column;
+
+        .content {
+            display: flex;
+            flex-direction: column;
+
+            .image {
+                overflow: hidden;
+                margin-bottom: 1.4rem;
+            }
+
+            .text {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+            }
+        }
+    }
+
+    &.fundo {
+        position: relative;
+        color: $branco !important;
+        padding: 2rem 0 4rem 0;
+        overflow-y: visible;
+        overflow-x: clip;
+
+        &::before {
+            position: absolute;
+            padding-bottom: 1rem;
+            left: 0;
+            bottom: -30px;
+            content: "";
+            height: 80%;
+            width: 100vw;
+            z-index: -1;
+            background-color: hsl(237, 17%, 21%);
+            background-image: url("../img/bg-pattern-circles.svg");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 0% -96%;
+            border-radius: 0 60px 0 60px;
+        }
+
+        h2 {
+            margin-bottom: 1rem !important;
+            color: $branco;
+        }
+    }
+}
