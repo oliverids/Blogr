@@ -1,0 +1,197 @@
+.main-section {
+    background-image: url("../img/bg-pattern-intro.svg"), linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+    background-size: 200%;
+    background-position: top left;
+    border-radius: 0 0 0 60px;
+
+    .container {
+        flex-direction: column;
+
+        header {
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            #menu-mobile {
+                position: relative;
+                z-index: 4;
+                width: 44px;
+                height: 44px;
+                div {
+                    width: 40px;
+                    height: 4px;
+                    margin: 0 auto;
+                    border-radius: 1px;
+                    background: $branco;
+                    transition: all 0.2s ease-in-out;
+                    position: relative;
+                    display: flex;
+
+                    &::before,
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        width: 40px;
+                        height: 4px;
+                        border-radius: 2px;
+                        background: $branco;
+                        transition: all 0.2s ease-in-out;
+                    }
+
+                    &::before {
+                        transform: translateY(-14px);
+                        display: block;
+                    }
+
+                    &::after {
+                        transform: translateY(14px);
+                        display: block;
+                    }
+                }
+
+                &.ativo {
+                    div {
+                        background: transparent;
+
+                        &::before {
+                            transform: rotate(45deg);
+                            background: $vermelho2;
+                        }
+                        &::after {
+                            transform: rotate(-45deg);
+                            background: $vermelho2;
+                        }
+                    }
+                }
+            }
+
+            nav {
+                position: absolute;
+                z-index: 3;
+                right: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                background: $branco;
+                padding: 7rem 0 2rem 0;
+                visibility: hidden;
+                opacity: 0;
+                transition: 0.3s all ease-in-out;
+
+                &.ativo {
+                    visibility: visible;
+                    opacity: 1;
+                    transition: 0.3s all ease-in-out;
+                }
+
+                .navigation {
+                    transition: all .3s ease-in-out;
+
+                    li {
+                        font-size: 1.2rem;
+                        font-family: $overpass;
+                        font-weight: 600;
+                    }
+
+                    #dropdown,
+                    #connect-list {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+
+                        li {
+                            text-align: center;
+
+                            a {
+                                display: block;
+                                color: #323232;
+                                padding: 10px 0;
+
+                                &:hover {
+                                    color: #0e0e0e;
+                                }
+                            }
+                        }
+                    }
+
+                    #dropdown {
+                        gap: 1rem;
+
+                        #connect {
+                            &::after {
+                                @extend %fontAwesome;
+                                content: "\f107";
+                                margin-left: 8px;
+                                color: $vermelho2;
+                            }
+
+                            &.ativo::after {
+                                content: '\f106';
+                            }
+                        }
+
+                        #connect-list {
+                            position: relative;
+                            gap: 8px;
+                            background-color: #ebe3e4;
+                            margin-top: 12px;
+                            visibility: hidden;
+                            opacity: 0;
+                            height: 0;
+                            transform: translateY(-16px);
+                            transition: opacity 0.3s ease-in-out;
+
+                            &.ativo {
+                                visibility: visible;
+                                opacity: 1;
+                                height: auto;
+                                transform: translateY(0);
+                                transition: all 0.3s ease-in-out;
+                            }
+                        }
+                    }
+
+                    .diff-cta {
+                        margin: 0 auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 24px;
+                        margin-top: 2rem;
+                        padding-top: 1rem;
+                        border-top: 1px solid #ebe3e4;
+
+                        button:first-child {
+                            background: none;
+                            color: #323232;
+                        }
+
+                        button:last-child {
+                            background: linear-gradient(hsl(13, 100%, 72%), hsl(353, 100%, 62%));
+                            color: $branco;
+                        }
+                    }
+                }
+            }
+        }
+
+        main {
+            padding: 4rem 0 4rem 0;
+            color: $branco;
+            font-family: $overpass;
+            text-align: center;
+
+            .diff-cta {
+                margin-top: 2rem;
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+
+                button {
+                    font-size: 1rem !important;
+                }
+            }
+        }
+    }
+}
