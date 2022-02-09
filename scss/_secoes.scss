@@ -2,23 +2,55 @@
     padding: 4rem 0;
     font-family: $ubuntu;
     color: $azul;
+    overflow: hidden;
+
+    @media only screen and (min-width: 1200px) {
+        padding: 10rem 0;
+    }
 
     .container {
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
         .content {
             display: flex;
             flex-direction: column;
+            align-items: center;
 
             .image {
-                overflow: hidden;
                 margin-bottom: 1.4rem;
+                max-width: 400px;
+
+                img {
+                    margin: 0 auto;
+                }
             }
 
             .text {
                 display: flex;
                 flex-direction: column;
                 gap: 2rem;
+                max-width: 500px;
+            }
+
+            @media only screen and (min-width: 1200px) {
+                & {
+                    width: 100%;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    .image {
+                        margin: 0;
+                        width: 500px !important;
+                        height: 400px;
+                        position: relative;
+
+                        img {
+                            position: absolute;
+                        }
+                    }
+                }
             }
         }
     }
@@ -29,6 +61,7 @@
         padding: 2rem 0 4rem 0;
         overflow-y: visible;
         overflow-x: clip;
+        margin-bottom: 4rem;
 
         &::before {
             position: absolute;
@@ -43,13 +76,129 @@
             background-image: url("../img/bg-pattern-circles.svg");
             background-size: contain;
             background-repeat: no-repeat;
-            background-position: 0% -96%;
+            background-position: 0% -50%;
             border-radius: 0 60px 0 60px;
+
+            @media only screen and (min-width: 768px) {
+                background-size: 70%;
+                background-position: -72% -156%;
+                bottom: -10px;
+            }
+
+            @media only screen and (min-width: 1200px) {
+                bottom: 0;
+                height: 67%;
+                top: 12%;
+                background-position: -53% 50%;
+            }
         }
 
         h2 {
             margin-bottom: 1rem !important;
             color: $branco;
+        }
+    }
+
+    @media only screen and (min-width: 1200px) {
+        &:nth-child(2) .container .content {
+            .image {
+                order: 2;
+                img {
+                    position: absolute;
+                    max-width: 165%;
+                    margin-left: -12px;
+                    margin-top: -106px;
+                }
+            }
+        }
+
+        &:nth-child(3) .container .content {
+            .image {
+                img {
+                    position: absolute;
+                    max-width: 136%;
+                    margin-top: -79px;
+                    margin-left: -51px;
+                }
+            }
+        }
+
+        &:nth-child(4) .container .content {
+            .image {
+                img {
+                    max-width: 200%;
+                    margin-top: -141px;
+                    margin-left: -241px;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background: hsl(240, 10%, 16%);
+    border-radius: 0 60px 0 0;
+    padding: 4rem 0;
+    font-family: $ubuntu;
+
+    .container {
+        flex-direction: column;
+
+        img {
+            align-self: center;
+        }
+
+        .lista,
+        .item,
+        .item ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lista {
+            gap: 2rem;
+            margin-top: 2rem;
+
+            .item {
+                span {
+                    color: $branco;
+                    margin-bottom: 1.5rem;
+                }
+
+                ul {
+                    gap: 1rem;
+
+                    li a {
+                        padding: 8px 0;
+                        color: hsl(240, 2%, 79%);
+
+                        &:hover {
+                            color: $branco;
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            justify-content: flex-start;
+            justify-content: space-between;
+
+            img {
+                align-self: start;
+            }
+
+            .lista {
+                width: 70%;
+                justify-content: space-between;
+                flex-direction: row;
+                align-items: flex-start;
+                margin: 0;
+            }
         }
     }
 }

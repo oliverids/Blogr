@@ -14,3 +14,9 @@ menuMobile.addEventListener('click', () => {
 connect.addEventListener('click', () => {
     [connectList, connect].forEach(each => each.classList.toggle('ativo'))
 })
+
+window.addEventListener('click', e => {
+    if(window.innerWidth >= 1200 && !connectList.contains(e.target) && !connect.contains(e.target)) {
+        [connectList, connect].forEach(each => each.classList.remove('ativo'))
+    }
+})
